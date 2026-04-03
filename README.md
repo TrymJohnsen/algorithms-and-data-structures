@@ -24,6 +24,7 @@ Written in Python.
 | `scc_module_dependency/` | Finds circular dependencies between modules using Kosaraju's SCC |
 | `dfs_islands/` | Counts islands in a grid using DFS |
 | `packing_assistant/` | Knapsack-based packing helper |
+| `huffman_compressor/` | Compresses text using Huffman coding |
 
 ---
 

@@ -12,19 +12,19 @@ DP is used when:
 
 ### Two main types
 | Type | Description | Characteristics |
-|**Bottom-Up (table-based)** | Builds the solution from the smallest subproblems upwards | Uses `for`-loops and tables |
-| **Top-Down (Memoization)** | Starts from the main problem and stores the results along the way | Uses recursion + cache (dictionary/list). |
+|---|---|---|
+| **Bottom-Up (table-based)** | Builds the solution from the smallest subproblems upwards | Uses `for`-loops and tables |
+| **Top-Down (Memoization)** | Starts from the main problem and stores the results along the way | Uses recursion + cache (dictionary/list) |
 
-## 💻 Kodeforslag du kan inkludere i mappen
+## Implementations
 
-| Filnavn | Beskrivelse |
-|----------|--------------|
-| `fibonacci_memo.py` | Top-Down DP med memoization |
-| `rod_cut.py` | Klassisk bottom-up-stavkutting |
-| `knapsack.py` | 0/1 Knapsack bottom-up DP |
-| `lcs.py` | Longest Common Subsequence med 2D-tabell |
-| `coin_change.py` | Minste antall mynter for et beløp |
-| `matrix_chain.py` | Optimal rekkefølge for matrise-multiplikasjon |
+| File | Problem | Approach |
+|---|---|---|
+| `fibonacci_memo.py` | Classic Fibonacci sequence | Top-Down memoization |
+| `rod_cut.py` | Maximize revenue by cutting a rod into pieces | Bottom-Up tabulation |
+| `knapsack.py` | 0/1 and unbounded knapsack | Both Top-Down and Bottom-Up |
+| `lcs.py` | Longest Common Subsequence | Bottom-Up 2D table |
+| `coin_change.py` | Minimum number of coins for a target amount | Bottom-Up tabulation |
 
 ## (LCS) Longest Common Subsequence
 
@@ -98,12 +98,32 @@ Because there are many overlapping subproblems (computing best price for smaller
 - Bottom-Up (Iterative): Builds optimal revenue for all lengths from 1..n
 
 <br>
-Extra: 
 
-- Average/Worst case: O(n·W)
-- Space Complexity: O(n·W)
+- Average/Worst case: O(n²)
+- Space Complexity: O(n)
 - Stable: Not applicable (n/a)
-- In-place: No (requires DP tables)
+- In-place: No (requires DP table)
 
 <br>
 
+## Fibonacci (Memoization)
+
+The classic introduction to dynamic programming. The naive recursive approach recomputes the same subproblems exponentially. Memoization reduces this to O(n) by caching each result once.
+
+- **Naive recursion**: O(2^n) — exponential due to overlapping calls
+- **Top-Down (memoized)**: O(n) time, O(n) space
+- **Bottom-Up (iterative)**: O(n) time, O(1) space (only need previous two values)
+
+<br>
+
+## Coin Change
+
+Given a set of coin denominations and a target amount, find the minimum number of coins needed.
+
+The DP table `dp[i]` stores the fewest coins needed to make amount `i`. For each amount, try every coin and take the best result.
+
+- **Average/Worst case**: O(n · amount)
+- **Space Complexity**: O(amount)
+- **In-place**: No
+
+<br>
